@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+<body>
+
+    <h1>Handling Promises using async await</h1>
+
+<script>
+    async function myfunc() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let a = 5;
+                if (a == 5) {
+                    resolve("success");
+                } else {
+                    reject("error");
+                }
+            }, 3000);
+        });
+    }
+
+    async function handlePromise() {
+
+        // also handling errors in asynchronous code execution
+        try {
+            const result = await myfunc();
+            console.log(result + " promise resolved");
+        } catch (error) {
+            console.log(error + " promise rejected");
+        }
+    }
+
+    handlePromise();
+</script>
+</body>
+</html>
+
